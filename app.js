@@ -1,6 +1,40 @@
 /**
  * Created by kapoor on 08-10-2017.
  */
+/*//Node_10
+var fs = require('fs');
+fs.unlink('./testCreateAsync/writeme.txt', function() {
+    fs.rmdir('testCreateAsync');
+})
+
+/!*!//Asynchronous method : Delete the file
+fs.mkdir('testCreateAsync', function() {
+    fs.readFile('readme.txt', 'utf8', function (err, data) {
+        fs.writeFile('./testCreateAsync/writeme.txt', data);
+    });
+});*!/
+
+/!*!// Synchronous method : Delete the file
+fs.unlink('writeme.txt');
+fs.mkdirSync('TestCreation');
+fs.rmdirSync('TestCreation');*!/*/
+
+/*
+Node_09
+var fs = require('fs');
+//Asynchronous method
+fs.readFile('./readme.txt', 'UTF-8', function (error, data) {
+    if(!error) {
+        fs.writeFile('writeme.txt', data);
+    }
+});
+console.log('asynchronous data');
+/!*!//Synchronous method
+var read = fs.readFileSync('./readme.txt', 'UTF-8');
+console.log(read);
+var write = fs.writeFileSync('./writeme.txt', read + " appended", 'UTF-8');*!/
+*/
+
 
 /*Node_08
 var events = require('events');
