@@ -1,6 +1,66 @@
 /**
  * Created by kapoor on 08-10-2017.
  */
+
+/*// Node_18
+var fs = require('fs');
+var http = require('http');
+
+
+var server = http.createServer(function(req, res) {
+    console.log('Request was made: ' + req.url);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    var myObj = {
+        name: 'Gaurav',
+        job: 'fullStack',
+        age: 'buddha'
+    }
+    res.end(JSON.stringify(myObj));
+});
+
+server.listen(3000, '127.0.0.1');
+console.log('Listening to port 3000.');*/
+
+/*// Node_17
+var fs = require('fs');
+var http = require('http');
+
+
+var server = http.createServer(function(req, res) {
+    console.log('Request was made: ' + req.url);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    var readStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
+    readStream.pipe(res);
+
+});
+
+server.listen(3000, '127.0.0.1');
+console.log('Listening to port 3000.');*/
+
+/*
+// Node_16 : Readable Streams
+var fs = require('fs');
+var http = require('http');
+
+
+var server = http.createServer(function(req, res) {
+    console.log('Request was made: ' + req.url);
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    var readStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8');
+    readStream.pipe(res);
+
+});
+
+server.listen(3000, '127.0.0.1');
+console.log('Listening to port 3000.');*/
+/*
+ // Node_14-15 : Readable Streams
+readStream.on('data', function(chunk) {
+    console.log('New chunk recieved.');
+    writeStream.write(chunk);
+});
+*/
+
 /*//Node_10
 var fs = require('fs');
 fs.unlink('./testCreateAsync/writeme.txt', function() {
