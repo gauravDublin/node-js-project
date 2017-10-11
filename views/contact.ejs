@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html pages</title>
+<link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+    <% include partials/nav.ejs %>
+    <h1>Hello, Here are contacts</h1>
+    <p>Contact Persons</p>
+
+    <form id="contact-form" method="POST" action="/contact">
+        <label for="who"> Who do you want to contact</label>
+        <input type="text" name="who" value="<%=qs.person %>">
+        <label for="department"> Which Department</label>
+        <input type="text" name="department"  value="<%=qs.dept %>">
+        <label for="email"> Email Id</label>
+        <input type="text" name="email">
+        <input type="submit" value="Get Data">
+    </form>
+</body>
+</html>

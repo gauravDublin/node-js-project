@@ -1,7 +1,80 @@
 /**
  * Created by kapoor on 08-10-2017.
  */
+// Node 23
+var express = require('express');
+var bodyParser = require('body-parser')
 
+var app = express();
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.set('view engine', 'ejs');
+app.use('/assets', express.static('assets'));
+/*app.use('/assets', function (req, res, next) {
+    console.log('Middleware is :' + req.url);
+    next();
+});*/
+app.get('/', function (req, res) {
+    res.render('index');
+});
+app.get('/home', function (req, res) {
+    res.send('This is the home page.');
+});
+app.get('/contact', function (req, res) {
+    //console.log(req.query);
+    res.render('contact', {qs: req.query});
+});
+/*app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/resources/html/index.html');
+});
+app.get('/home', function (req, res) {
+    res.send('This is the home page.');
+});
+app.get('/contacts', function (req, res) {
+    res.send('This is the contact page.');
+});*/
+//Dynamic data from DB
+app.get('/profile/:name', function (req, res) {
+    var data = {age:34, job:'developer', hobbies:['Swimming', 'Dancing', 'Gymming']};
+    res.render('profile', {person: req.params.name, data:data});
+    //res.send(__dirname + '/resources/html/contact.html');
+});
+// POST /contacts gets urlencoded bodies
+app.post('/contact', urlencodedParser, function (req, res) {
+    console.log(req.body);
+    res.render('contact200', {data: req.body} );
+})
+app.listen(3000);
+/*var http = require('http');
+var fs = require('fs');
+
+var server = http.createServer(function(req, res){
+    console.log('Request Recieved: ' + req.url);
+    if(req.url ==='/home' || req.url ==='/') {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        fs.createReadStream(__dirname + '/resources/html/index.html').pipe(res);
+    } else if(req.url === '/contacts') {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        fs.createReadStream(__dirname + '/resources/html/contact.html').pipe(res);
+    } else if(req.url === '/api/secure') {
+        var coder = [
+            {name: 'Illia', role: 'Developer', salary: 23000},
+            {name: 'Als', role: 'Tester', salary: 55000}
+
+        ];
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify(coder));
+
+    } else {
+        res.writeHead(404, {'Content-Type': 'text/html'});
+        fs.createReadStream(__dirname + '/resources/html/404.html').pipe(res);
+
+    }
+});
+server.listen(3000, '127.0.0.1');
+console.log('Server listening');*/
 /*// Node_18
 var fs = require('fs');
 var http = require('http');
