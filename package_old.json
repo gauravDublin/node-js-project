@@ -1,0 +1,25 @@
+{
+  "name": "node-js-project",
+  "version": "1.0.0",
+  "description": "generating package.jso",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravDublin/node-js-project.git"
+  },
+  "author": "Gaurav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravDublin/node-js-project/issues"
+  },
+  "homepage": "https://github.com/gauravDublin/node-js-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
