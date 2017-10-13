@@ -1,0 +1,6 @@
+#IntelliJ gitignore files
+
+
+.idea/
+.idea_modules/
+node_modules/
